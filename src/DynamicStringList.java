@@ -1,29 +1,32 @@
 public class DynamicStringList implements StringList {
 
-    private String[] array = new String[10];
     private int size = 0;
+    private int capacity = 10;
+    private String[] array = new String[capacity];
 
 
     @Override
     public String get(int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        IndexOutOfBoundsCheck(index);
+
+        return array[index];
     }
 
     @Override
     public void set(int index, String value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'set'");
+        IndexOutOfBoundsCheck(index);
+
+        array[index] = value;
     }
 
     @Override
     public void add(String value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        
     }
 
     @Override
     public String remove(int index) {
+        IndexOutOfBoundsCheck(index);
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
@@ -36,8 +39,12 @@ public class DynamicStringList implements StringList {
 
     @Override
     public int capacity() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'capacity'");
+        return capacity;
     }
     
+    private void IndexOutOfBoundsCheck(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+    }
 }
