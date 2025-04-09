@@ -67,9 +67,6 @@ public class DynamicStringListTest {
         System.out.println(exception.getMessage());
         assertEquals("Index out of bounds: 0", exception.getMessage());
     }
-
-    @Test
-    void testRmove
     
 
     //TODO: Size Test
