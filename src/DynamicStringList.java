@@ -21,14 +21,30 @@ public class DynamicStringList implements StringList {
 
     @Override
     public void add(String value) {
-        
+        if (size == capacity) {
+            capacity = capacity * 2;
+            String[] newArray = new String[capacity];
+
+            for (int i = 0; i < size; i++) {
+                newArray[i] = array[i];
+            }
+            array = newArray;
+        }
+
+        array[size] = value;
+        size++;
     }
 
     @Override
     public String remove(int index) {
         IndexOutOfBoundsCheck(index);
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        String removed = array[index];
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        array[size - 1] = "";
+        size--;
+        return removed;
     }
 
     @Override
@@ -45,5 +61,21 @@ public class DynamicStringList implements StringList {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
         }
+    }
+
+    // added for testing purposes
+    // Would have used StringBuilder but wasn't sure if this would count against 'premade methods'
+    @Override
+    public String toString() {
+        String string = "";
+
+        for (int i = 0; i < size; i++) {
+            string += array[i];
+            if (i < size - 1) {
+                string += ", ";
+            }
+        }
+
+        return string;
     }
 }
