@@ -22,7 +22,7 @@ public class DynamicStringListTest {
         list.add("Peach");
     
         String result = list.get(2);
-        
+
         assertEquals("Peach", result);
     }
 
@@ -84,7 +84,6 @@ public class DynamicStringListTest {
         list.add("Cherry");
 
         list.add("Pear");
-
         String result = list.get(3);
 
         assertEquals("Pear", result);
@@ -125,6 +124,7 @@ public class DynamicStringListTest {
 
         list.add("Pear");
         String result = list.get(10);
+
         assertEquals("Pear", result);
     }
 
@@ -146,6 +146,7 @@ public class DynamicStringListTest {
 
         list.add("Pear");
         String result = list.get(12);
+
         assertEquals("Pear", result);
     }
 
@@ -175,6 +176,7 @@ public class DynamicStringListTest {
 
         int result = list.size();
         System.out.println(list);
+
         assertEquals(3, result);
     }
 
@@ -195,6 +197,7 @@ public class DynamicStringListTest {
         list.add("Lemon");
 
         int result = list.size();
+
         assertEquals(12, result);
     }
 
@@ -209,6 +212,7 @@ public class DynamicStringListTest {
         list.add("Elderberry");
 
         int result = list.capacity();
+
         assertEquals(10, result);
     }
 
@@ -228,6 +232,7 @@ public class DynamicStringListTest {
         list.add("Pear");
 
         int result = list.capacity();
+        
         assertEquals(20, result);
     }
 }
