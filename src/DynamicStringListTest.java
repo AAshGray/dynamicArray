@@ -114,28 +114,6 @@ public class DynamicStringListTest {
         assertEquals("Pear", result);
     }
 
-    @Test
-    void testAdd_doubleCapacityAtCapacity() {
-        DynamicStringList list = new DynamicStringList();
-        list.add("Apple");
-        list.add("Banana");
-        list.add("Cherry");
-        list.add("Date");
-        list.add("Elderberry");
-        list.add("Fig");
-        list.add("Grape");
-        list.add("Honeydew");
-        list.add("Ichigo");
-        list.add("Jackfruit");
-
-        list.add("Pear");
-        int result = list.capacity();
-        assertEquals(20, result);
-    }
-
-
-
-
     //TODO: Remove Tests
     @Test
     void testRemove_EmptyListOutOfBounds() {
@@ -152,7 +130,6 @@ public class DynamicStringListTest {
         assertEquals("Index out of bounds: 0", exception.getMessage());
     }
     
-
     //TODO: Size Test
     @Test
     void testSize_equalsThree() {
@@ -183,11 +160,39 @@ public class DynamicStringListTest {
         list.add("Lemon");
 
         int result = list.size();
-        //System.out.println(list);
         assertEquals(12, result);
     }
 
     //TODO: Capacity Test
+    @Test
+    void testCapacity_startingCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add("Date");
+        list.add("Elderberry");
 
+        int result = list.capacity();
+        assertEquals(10, result);
+    }
 
+    @Test
+    void testCapacity_doubleCapacityAtCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add("Date");
+        list.add("Elderberry");
+        list.add("Fig");
+        list.add("Grape");
+        list.add("Honeydew");
+        list.add("Ichigo");
+        list.add("Jackfruit");
+        list.add("Pear");
+
+        int result = list.capacity();
+        assertEquals(20, result);
+    }
 }
