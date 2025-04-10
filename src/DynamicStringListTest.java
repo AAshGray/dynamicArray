@@ -47,7 +47,19 @@ public class DynamicStringListTest {
         assertEquals("Index out of bounds: 3", exception.getMessage());
     }
 
-    //TODO: Set Tests
+    //TODO: Get tests
+    @Test
+    void testGet_middleIndex() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Peach");
+        
+        list.set(1, "Pear");
+        String result = list.get(1);
+        
+        assertEquals("Pear", result);
+    }
 
     //TODO: Add Tests
 
