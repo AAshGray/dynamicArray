@@ -47,14 +47,28 @@ public class DynamicStringListTest {
         assertEquals("Index out of bounds: 3", exception.getMessage());
     }
 
-    //TODO: Get tests
+    //TODO: Set tests
     @Test
-    void testGet_middleIndex() {
+    void testSet_middleIndex() {
         DynamicStringList list = new DynamicStringList();
         list.add("Apple");
         list.add("Banana");
         list.add("Peach");
         
+        list.set(1, "Pear");
+        String result = list.get(1);
+        
+        assertEquals("Pear", result);
+    }
+
+    @Test
+    void testSet_middleIndexSetTwice() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Peach");
+        
+        list.set(1, "Not Pear");
         list.set(1, "Pear");
         String result = list.get(1);
         
@@ -111,6 +125,27 @@ public class DynamicStringListTest {
 
         list.add("Pear");
         String result = list.get(10);
+        assertEquals("Pear", result);
+    }
+
+    @Test
+    void testAdd_overCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add("Date");
+        list.add("Elderberry");
+        list.add("Fig");
+        list.add("Grape");
+        list.add("Honeydew");
+        list.add("Ichigo");
+        list.add("Jackfruit");
+        list.add("Kiwi");
+        list.add("Lemon");
+
+        list.add("Pear");
+        String result = list.get(12);
         assertEquals("Pear", result);
     }
 
