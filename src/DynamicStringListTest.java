@@ -62,6 +62,78 @@ public class DynamicStringListTest {
     }
 
     //TODO: Add Tests
+    @Test
+    void testAdd_underCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+
+        list.add("Pear");
+
+        String result = list.get(3);
+
+        assertEquals("Pear", result);
+    }
+
+    @Test
+    void testAdd_oneUnderCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add("Date");
+        list.add("Elderberry");
+        list.add("Fig");
+        list.add("Grape");
+        list.add("Honeydew");
+        list.add("Ichigo");
+
+        list.add("Pear");
+        String result = list.get(9);
+
+        assertEquals("Pear", result);
+    }
+
+    @Test
+    void testAdd_atCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add("Date");
+        list.add("Elderberry");
+        list.add("Fig");
+        list.add("Grape");
+        list.add("Honeydew");
+        list.add("Ichigo");
+        list.add("Jackfruit");
+
+        list.add("Pear");
+        String result = list.get(10);
+        assertEquals("Pear", result);
+    }
+
+    @Test
+    void testAdd_doubleCapacityAtCapacity() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add("Date");
+        list.add("Elderberry");
+        list.add("Fig");
+        list.add("Grape");
+        list.add("Honeydew");
+        list.add("Ichigo");
+        list.add("Jackfruit");
+
+        list.add("Pear");
+        int result = list.capacity();
+        assertEquals(20, result);
+    }
+
+
 
 
     //TODO: Remove Tests
